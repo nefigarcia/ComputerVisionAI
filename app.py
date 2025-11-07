@@ -4,7 +4,7 @@ import time
 import streamlit as st
 
 # Your IP camera URL
-CAM_URL = "https://streams.ivideon.com/embed/live/100-FYW8wCUjdsxJjRv8myRhCX&amp"
+CAM_URL = "https://open.ivideon.com/embed/v3/?server=100-FYW8wCUjdsxJjRv8myRhCX&camera=0"
 st.components.v1.iframe(CAM_URL, height=480, width=640)
 
 # Dummy defect detection function (replace with your ML model)
