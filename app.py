@@ -11,8 +11,8 @@ st.components.v1.iframe(CAM_URL, height=480, width=640)
 def detect_defects(frame):
     h, w, _ = frame.shape
     # Draw a random rectangle to simulate defect detection
-    x1, y1 = np.random.randint(0, w//2), np.random.randint(0, h//2)
-    x2, y2 = np.random.randint(w//2, w), np.random.randint(h//2, h)
+    x1, y1 = w//4, h//4
+    x2, y2 = 3*w//4, 3*h//4
     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
     return frame, {"defects": 1}
 
@@ -30,6 +30,8 @@ cap = cv2.VideoCapture(CAM_URL)
 if not cap.isOpened():
     st.error("❌ Cannot open IP camera. Check the URL and that the phone app is running.")
 else:
+    frame_placeholder = st.empty()
+    stats_placeholder = st.empty()
     defect_count = 0
     while True:
         ret, frame = cap.read()
