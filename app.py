@@ -4,7 +4,7 @@ import time
 import streamlit as st
 
 # Your IP camera URL
-CAM_URL = "http://192.168.141.208:8080/video"
+CAM_URL = "http://10.64.138.194:8080/video"
 
 # Dummy defect detection function (replace with your ML model)
 def detect_defects(frame):
