@@ -5,14 +5,14 @@ import streamlit as st
 
 # Your IP camera URL
 CAM_URL = st.text_input("Enter your IP camera URL (e.g., from IP Webcam app):", "https://bradford-biauriculate-sightlessly.ngrok-free.dev/video")
-st.components.v1.iframe(CAM_URL, height=480, width=640)
+#st.components.v1.iframe(CAM_URL, height=480, width=640)
 
 # Dummy defect detection function (replace with your ML model)
 def detect_defects(frame):
     h, w, _ = frame.shape
     # Draw a random rectangle to simulate defect detection
-    x1, y1 = w//4, h//4
-    x2, y2 = 3*w//4, 3*h//4
+    x1, y1 = np.random.randint(0, w//2), np.random.randint(0, h//2)
+    x2, y2 = np.random.randint(w//2, w), np.random.randint(h//2, h)
     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
     return frame, {"defects": 1}
 
